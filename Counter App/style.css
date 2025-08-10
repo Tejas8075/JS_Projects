@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #131422;
+    color: white;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    width: 40vw;
+    height: 55vh;
+    color: #131422;
+    position: absolute;
+    background: #0075C3;
+}
+
+.container {
+    /* border: 2px solid red; */
+    width: 50vw;
+    max-width: 500px;
+    /* height: 47%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    font-weight: 600;
+    gap: 20px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.container,
+.buttons,
+p {
+    background: #19192B;
+}
+
+.minus,
+.plus,
+.reset {
+    font-size: 1.4rem;
+    font-weight: 900;
+    padding-left: 1.4em;
+    padding-right: 1.4em;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    margin: 0.6em;
+}
+
+.minus,
+.plus {
+    background: #0078C7;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+.reset {
+    border: 2px solid #0078C7;
+    border-radius: 3px;
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .container {
+        width: 90vw;
+        font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        width: 70vw;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .container {
+        width: 40vw;
+    }
+}
