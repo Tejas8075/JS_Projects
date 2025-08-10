@@ -9,6 +9,9 @@ html, body {
     width: 100%;
     height: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 i {
@@ -25,4 +28,69 @@ i:hover {
     border-radius: 50%;
     box-shadow: 5px 5px 10px gray;
 }
+
+.container {
+    border: 2px solid red;
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.display {
+    border: 2px solid blue;
+    font-size: 1.9rem;
+    /* font-weight: bold; */
+    text-align: end;
+    position: absolute;
+    top: 6%;
+    width: 90%;
+    padding: 1em;
+}
+
+.operations {
+    border: 2px solid green;
+    width: 90%;
+    height: 70%;
+    margin-top: 5em;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.first-row, .second-row, .third-row, .fourth-row, .fifth-row {
+    border: 2px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+span {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 60px;               /* fixed size for perfect circle */
+    height: 60px;
+    display: flex;             /* center horizontally & vertically */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;         /* prevents accidental text selection */
+}
+
+span:hover {
+    background-color: darkred; /* hover feedback */
+}
+
+
+
+
 
