@@ -14,110 +14,179 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(22, 35, 35);
+    background-color: rgb(83, 138, 138);
+    padding: 1rem;
+    /* some padding for smaller screens */
 }
 
-
 .container {
-    /* border: 2px solid red; */
     border-radius: 10px;
-    width: 60vw;
+    width: 90vw;
+    /* Use 90% of viewport width for fluid scaling */
     max-width: 500px;
-    height: 90%;
+    /* Max width on large screens */
+    min-width: 320px;
+    /* Minimum width for very small screens */
+    height: auto;
+    /* Let height adjust based on content */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     background: linear-gradient(120deg, #0DCC8B, #5A4D6D);
     position: relative;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Inputs */
 .inputs {
-    /* border: 2px solid yellow; */
-    width: 90%;
-    padding: 1em;
-    height: 15%;
+    width: 100%;
+    padding: 0;
+    height: auto;
     display: flex;
     justify-content: space-between;
     color: dimgray;
-    /* background: linear-gradient(120deg, #0DCC8B, #5A4D6D); */
-    /* margin-top: 1em; */
+    margin-bottom: 1.2rem;
 }
 
 .search-bar {
-    outline: none;
+    flex-grow: 1;
+    /* Take up available space */
     border: none;
-    width: 80%;
+    outline: none;
     background: #fff;
-    border-top-left-radius: 38px;
-    border-bottom-left-radius: 38px;
-    border-top-right-radius: 38px;
-    border-bottom-right-radius: 38px;
-    padding: 1.3em;
-    margin-right: 1em;
+    border-radius: 38px;
+    padding: 1em 1.5em;
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    min-width: 0;
+    /* Fix flexbox input shrinking issue */
 }
 
 .search-bar::placeholder {
     color: dimgray;
 }
 
-.inputs img {
+/* Search Icon */
+.inputs img.search-img {
     border: 2px solid white;
     border-radius: 50%;
-    width: 15%;
-    padding: 1.2em;
-    text-align: center;
+    width: 48px;
+    height: 48px;
+    padding: 0.6em;
     background: white;
     object-fit: contain;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
+/* Temperature and City */
 .temperature-city {
-    width: 70%;
+    width: 100%;
     text-align: center;
     color: white;
+    margin-bottom: 1.5rem;
 }
 
 .temperature {
-    font-size: 5rem;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    /* Scales smoothly from 2.5rem up to 5rem */
     font-weight: 400;
 }
 
 .city-name {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 300;
+    margin-top: 0.3rem;
 }
 
+/* Weather Image */
+.weather-img img.temperature-img {
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Humidity and Wind */
 .humidity-wind {
-    width: 85%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 60px;
-}
-
-.humidity img,
-.wind-speed img {
-    width: 25%;
-    object-fit: contain;
-    /* margin-right: 1em; */
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* Wrap on small screens */
+    margin-bottom: 1rem;
 }
 
 .humidity,
 .wind-speed {
+    flex: 1 1 45%;
+    /* Grow, shrink, and basis for responsive */
     display: flex;
-    /* gap: 20px; */
+    align-items: center;
+    background: rgba(255 255 255 / 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.humidity img,
+.wind-speed img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 1rem;
 }
 
 .data {
-    margin-left: 1em;
     color: white;
 }
 
 .percent,
 .speed {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .humidity,
 .wind {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+/* Media Queries for small screens */
+
+@media (max-width: 480px) {
+    .search-bar {
+        padding: 0.9em 1.2em;
+        font-size: 0.9rem;
+    }
+
+    .inputs img.search-img {
+        width: 40px;
+        height: 40px;
+        padding: 0.4em;
+    }
+
+    .temperature {
+        font-size: 3.5rem;
+    }
+
+    .city-name {
+        font-size: 1.8rem;
+    }
+
+    .humidity,
+    .wind-speed {
+        flex-basis: 100%;
+        justify-content: flex-start;
+    }
+
+    .humidity img,
+    .wind-speed img {
+        width: 30px;
+        height: 30px;
+    }
 }
